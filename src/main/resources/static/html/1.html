@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--эта строка - источник в библиотеках, подключается через мавен (.m2), см. pom.xml. Прямого доступа к jar архиву
+    нет, только через работающее приложение-->
+    <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<!--эта строка - источник в родительской директории, к нему есть доступ всегда-->
+    <link href="../bootstrap3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <title>Мир jQuery</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<h2>Добро пожаловать в мир jQuery</h2>
+<button id="btn1">jQuery</button>
+<button id="btn2" onclick="alert('Мир JavaScript'); ">JavaScript</button>
+
+<!--эта строка - источник в библиотеках, подключается через мавен (.m2), см. pom.xml. Прямого доступа к jar архиву нет,
+только через работающее приложение-->
+<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<!--эта строка - источник в родительской директории, к нему есть доступ всегда-->
+<script src="../jquery-3.3.1.js"></script>
+
+<script type="text/javascript">
+// здесь сокращенная запись функции, полная запись: $(document).ready(function(){ здесь код функции. });
+    $(function(){
+        $("#btn1").click(function(){
+            $(this).css('background-color', 'red');
+            alert('Мир jQuery');
+        });
+    });
+</script>
+</body>
+</html>

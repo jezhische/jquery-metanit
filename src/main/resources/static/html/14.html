@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../bootstrap3.3.7/css/bootstrap.min.css">
+    <title>мир jQuery</title>
+</head>
+<body>
+
+<script src="../jquery-3.3.1.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function () {
+
+    $(document).bind('keydown', function (event) {
+        console.log(event.which);
+    });
+    var message = 'hrrprr';
+    $(document).bind('keydown', message, function (event) {
+        console.log(event.data);
+    });
+
+});
+</script>
+</body>
+</html>

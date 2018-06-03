@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../bootstrap3.3.7/css/bootstrap.min.css">
+    <title>мир jQuery</title>
+</head>
+<body>
+<ul id="langs">
+    <li id="quox">Java</li>
+    <li>C/C++</li>
+    <li>PHP</li>
+</ul>
+<script src="../jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        //создание объекта jQuery:
+        var newList = $('<ul><li>Item1</li><li>Item2</li></ul>');
+        console.log(newList.html());
+
+        var ulVar = $('ul');
+        newList = ulVar.first().clone();
+        console.log(newList.html());
+
+        // NB: $('#langs'), $('ul#langs') и $('ul') - в данном случае одно и то же
+        // вставка строки кода
+        $('#langs').append('<li>C#</li>');
+
+        // вставка элемента
+        var jsItem = document.createElement('li');
+        jsItem.innerHTML = 'javascript';
+        ulVar.prepend(jsItem);
+
+        //вставка объекта jQuery
+        ulVar.append(newList);
+        ulVar.append($('<li>Visual Basic</li>'));
+    //    ------------------------------------------------------------------
+
+        var ulIdVar = $('ul#langs');
+        ulIdVar.append('<li>--------------</li>');
+        ulVar.append(ulIdVar.html());
+
+        // как дочерний:
+        $('<ul><li>suspenciariy</li></ul>').appendTo(document.getElementById('quox'));
+
+
+        console.log(document.title);
+
+        $(document.getElementsByTagName('li')).wrapInner('<p></p>');
+        console.log(document);
+
+        $('li').each(function (index, element) {
+            console.log('index: ' + index + ':: ' + element.innerHTML);
+        })
+    });
+</script>
+</body>
+</html>

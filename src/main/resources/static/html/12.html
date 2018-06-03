@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../bootstrap3.3.7/css/bootstrap.min.css">
+    <title>мир jQuery</title>
+</head>
+<body>
+<div id="list">
+    <div class="lang">Java</div>
+    <div class="lang">C/C++</div>
+    <div class="lang">PHP</div>
+</div>
+<script src="../jquery-3.3.1.js"></script>
+<script type="text/javascript">
+$(function () {
+
+    $('div.lang').replaceWith(function (elem) {
+        return '<li class="lang">' + $(this).text() + '</li>';
+    });
+    $('div#list').replaceWith(function () {
+        return '<ol class="list">' + $(this).html() + '</ol>';
+    });
+
+    var array = $('li[class]');
+    array.after(array.last().clone().empty());
+
+    array = $('li[class]');
+    console.log('------------array: ');
+    array.each(function (index, elem) {
+        console.log(elem.innerHTML);
+    });
+
+    var emptyArray = array.detach(':odd');
+    console.log('------------------emptyArray: ');
+    emptyArray.each(function (index, elem) {
+        console.log(elem.innerHTML);
+    });
+    // emptyArray.remove(':odd');
+    // console.log('------------------emptyArray: ');
+    // emptyArray.each(function (index, elem) {
+    //     console.log(elem.innerHTML);
+    // });
+
+    array = $('li[class]');
+    console.log('------------array: ');
+    array.each(function (index, elem) {
+        console.log(elem.innerHTML);
+    });
+    array.last().after(function () {
+        return emptyArray;
+    });
+    // emptyArray.insertAfter(array.last());
+
+
+});
+</script>
+</body>
+</html>

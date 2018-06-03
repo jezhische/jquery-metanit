@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../bootstrap3.3.7/css/bootstrap.min.css">
+    <title>мир jQuery</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="form-group">
+        <button class="col-xs-3 col-md-offset-2 langs">Push it</button>
+    </div>
+    <div class="form-group">
+        <button class="col-xs-3 col-md-offset-2">Push it</button>
+    </div>
+</div>
+<button class="one">One</button>
+<button class="one">Two</button>
+<button class="one">Three</button>
+<p></p>
+<button class="two">Four</button>
+<button class="two">Five</button>
+<button class="two">Six</button>
+<script src="../jquery-3.3.1.js"></script>
+<script type="text/javascript">
+$(function () {
+    
+   // $("[class|=col]").bind('click',  function () {
+   //     alert('Haw, pale!');
+   // });
+
+    $('[class|=col]').bind('click', function () {
+       if ($(this).hasClass('langs')) {
+           $('body').append('<li>Java</li><li>JavaScript</li>');
+       } else {
+           alert('Haw, pale!');}
+    });
+
+    $('.one').one('click', function () {
+        $(this).css('color', 'red');
+        $('body').append('<p>The button ' + $(this).text() + ' was pushed</p>');
+        // alert('Обработчик для кнопки: '+$(this).text());
+    });
+
+    $('.two').bind('click', function () {
+        console.log($(this).css('color'));
+        if ($(this).css('color') == 'rgb(255, 0, 0)') {$(this).css('color', 'blue');}
+       else {$(this).css('color', 'red');}
+        $('body').append('<p>The button ' + $(this).text() + ' has color: ' + $(this).css('color') + '</p>');
+    });
+
+});
+</script>
+</body>
+</html>

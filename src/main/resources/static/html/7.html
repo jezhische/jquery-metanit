@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../bootstrap3.3.7/css/bootstrap.min.css">
+    <title>мир jQuery</title>
+</head>
+<body>
+<ul data-year="2010" data-description="lang" style="color: #d58512; font-weight: bolder" id="hrr">
+    <li>Java</li>
+    <li>C/C++</li>
+    <li>PHP</li>
+</ul>
+<script src="../jquery-3.3.1.js"></script>
+<script type="text/javascript">
+$(function () {
+    var ul = $('ul');
+    ul.each(function (index, el) {
+        console.log(index + ': ' + el.innerHTML);
+    });
+    ul.children().each(function (ind, el) {
+        console.log('ind: ' + ind + ', el: ' + el.innerHTML);
+    });
+    ul.each(function (index, elem) {
+        console.log('STYLE:' + $(elem).prop('style'));
+        console.log('ID:' + $(elem).attr('id'));
+    });
+
+    console.log(ul.data());
+    console.log(ul.data().year);
+    console.log(ul.data('year'));
+    ul.first().data('year', '2012');
+    console.log(ul.data().year);
+// программное добавление аттрибута:
+    ul.data('age', '40');
+
+});
+</script>
+</body>
+</html>

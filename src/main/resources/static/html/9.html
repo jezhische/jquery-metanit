@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../bootstrap3.3.7/css/bootstrap.min.css">
+    <title>мир jQuery</title>
+</head>
+<body>
+<h2 class="header">
+    Header
+    <li>item</li>
+</h2>
+<ul class="menu">
+    <li class="punkt1">Item 1</li>
+    <li class="punkt2">Item 2
+    <ul class="submenu">
+        <li>Subitem 2.1</li>
+        <li>Subitem 2.2</li>
+    </ul>
+    </li>
+    <li class="punkt3">Item 3</li>
+</ul>
+
+<input type="text" value="введите логин">
+<input type="text" value="введите чё-нибудь"/>
+<input type="submit" value="submit me"/>
+
+<script src="../jquery-3.3.1.js"></script>
+<script type="text/javascript">
+$(function () {
+
+    console.log($('li.punkt1').html());
+// установить новую разметку элемента:
+    $('li.punkt1').html("Item 1 <ul class=\"submenu\"><li>Subitem 1.1</li></ul>");
+// чтобы не "затереть" старую разметку новой, а оставить обе:
+    var hArray = $('h2.header');
+    var oldHtml = hArray.html();
+    hArray.html(oldHtml + "<p><h3>New paragraph</h3></p>");
+
+    // или:
+    hArray = $('h2.header'); // если не считать переменную заново,
+// получается Uncaught ReferenceError: hArray is not defined. Почему здесь получается, а ниже нет - хрен его...
+    hArray.html(function (ind, oldValue) {
+        console.log('index: ' + ind + ', oldValue: ' + oldValue);
+        return oldValue + " + some new Header";
+    });
+    // пробы...
+    // hArray = $('h2.header');
+    hArray.each(function (index, elem) {
+        console.log('index: ' + index + ', elem: ' + elem.innerHTML);
+    });
+    // console.log('------------- ' + hArray.first().innerHTML);
+    // console.log('------------- ' + hArray.eq(0).innerHTML);
+
+    var oldAllTextInputValue = $('input[type=text]');
+    oldAllTextInputValue.each(function (ind, el) {
+        console.log('oldAllTextInputValue[' + ind + ']: ' + el.innerHTML);
+    });
+    // получить значение ПЕРВОЙ переменной массива:
+    console.log('old first Text Input Value: ' + oldAllTextInputValue.val());
+    // изменить значение:
+    console.log('old second Text Input Value: ' + oldAllTextInputValue.eq(1).val() +
+        '\nnew second Text Input Value: ' + oldAllTextInputValue.eq(1).val('введите пароль').val());
+    // или:
+    oldAllTextInputValue.eq(1).val(function (index, oldValue) {
+        console.log('old Value of second text input: ' + oldValue);
+        return oldValue + ', угу';
+    });
+
+});
+
+</script>
+</body>
+</html>

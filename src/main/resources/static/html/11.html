@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../bootstrap3.3.7/css/bootstrap.min.css">
+    <title>мир jQuery</title>
+</head>
+<body>
+<ul id="langs">
+    <li id="quox">Java</li>
+    <li>
+        C/C++
+    <li>uryuryury</li>
+    </li>
+    <li>PHP</li>
+</ul>
+<script src="../jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        var quox = $('#quox');
+        $('<li>hururu</li>').prependTo(quox);
+        quox.append('<li>hororo</li>');
+        quox.each(function (i, e) {
+            console.log(e.innerHTML);
+        });
+        console.log("---------------------------");
+
+        var notQuox = $("li:not(#quox)"); // = $('li').filter(':not(#quox)');  = $('li').not('#quox');
+        notQuox.each(function (i, e) {
+            console.log(e.innerHTML);
+        });
+        console.log("---------------------------");
+
+        var jsElem = document.createElement('li');
+        jsElem.innerHTML = "javascript";
+        console.log(notQuox.get(1).innerHTML);
+        notQuox.get(1).before(jsElem);
+        // notQuox.get(1).before(function () {
+        //     var jsElem = document.createElement('li');
+        //     jsElem.innerHTML = "javascript";
+        //     return jsElem;
+        // });
+
+        console.log("---------------------------");
+
+        var lastElem = $('li').not('#quox').last();
+        lastElem.clone().html('Visual Basic').insertAfter(lastElem);
+        console.log("---------------------------");
+
+        // var firstLevelNotQuox = notQuox.eq(2).add(notQuox.eq(2).siblings());
+        // firstLevelNotQuox.each(function (i, e) {
+        //     console.log(e.innerHTML);
+        // });
+        // console.log("---------------------------");
+
+    });
+</script>
+</body>
+</html>

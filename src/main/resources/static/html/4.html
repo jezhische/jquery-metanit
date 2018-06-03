@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../bootstrap3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <!--<link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+    <title>Мир jQuery</title>
+</head>
+<body>
+<table>
+    <tr><td class="red">Слово</td><td class="blue">Перевод</td></tr>
+    <tr><td>Cabbage</td><td>Капуста</td></tr>
+    <tr><td>Carrot</td><td>Морковь</td></tr>
+    <tr><td>Potato</td><td>Картофель</td></tr>
+    <tr><td>Tomato</td><td>Помидор</td></tr>
+</table>
+
+<script src="../jquery-3.3.1.js"></script>
+<!--<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>-->
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+        var array = $("tr:even");
+
+        array.css('background-color', 'silver');
+        $('.red').css('background-color', 'red');
+        $('.blue').css('background-color', 'blue');
+
+        for(var i=0;i<array.length;i++){
+            console.log(i.toString()+". " +array[i].innerHTML);
+        }
+
+        console.log("get(1) from $(\"tr\") selector: " + $("tr").get(1).innerHTML); // Cabbage Капуста
+        console.log("get(1) from $(\"tr > td\") selector: " + $("tr > td").get(1).innerHTML); // Перевод
+        var elem = array.get(1);
+        console.log(elem);
+
+        array.eq(-1).css('background-color', 'green');
+    });
+    $(function () {
+        var array = $("tr:odd");
+        array.each(function (indexus, elementus) {
+            console.log("each of    " +array.selector + ":\n" + indexus.toString() + "." + elementus.innerHTML);
+        })
+    })
+
+</script>
+</body>
+</html>

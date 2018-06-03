@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../bootstrap3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <style>
+        h1{font-size: 120%;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            color: #d58512;}
+        .fourth{font-size: 200%;
+        font-weight: bolder;
+        color: green;}
+    </style>
+    <title>мир jQuery</title>
+</head>
+<body>
+<h1>фильтрация выборки: методы filter, not, has, map, is</h1>
+<hr>
+<table>
+    <caption><h3>Какая-то таблица</h3></caption>
+    <tr class="th third">
+    <td class="header_first second third">Браузер</td>
+    <td class="third">Посещения</td>
+    <td>Доля</td>
+    </tr>
+    <tr class="third">
+        <td class="third">Mozilla Firefox</td>
+        <td class="third">163</td>
+        <td class="third">59%</td>
+    </tr>
+    <tr class="third">
+        <td id="third_td0">Google Chrome</td>
+        <td>78</td>
+        <td>28%</td>
+    </tr>
+    <tr class="fourth">
+        <td>Safari</td>
+        <td>35</td>
+        <td>13%</td>
+    </tr>
+</table>
+<p class="header_first second third">Проверка фильтра</p>
+<h3>
+    <ol>
+        <li>Пункт 1
+            <ol>
+                <li>Подпункт 1.1
+                    <ol>
+                        <li>Подпункт 1.1.1</li>
+                        <li>Подпункт 1.1.2</li>
+                    </ol>
+                </li>
+                <li>Подпункт 1.2</li>
+            </ol>
+        </li>
+        <li>Пункт 2
+            <ul>
+                <li>Подпункт 2.1
+                    <ul class="submenu">
+                        <li>Подпункт 2.1.1</li>
+                        <li>Подпункт 2.1.2</li>
+                    </ul>
+                </li>
+                <li>Подпункт 2.2</li>
+            </ul>
+        </li>
+        <li>Пункт 3</li>
+    </ol>
+    <ul>
+        <li>bb 1</li>
+        <li>bb 2
+            <ul>
+                <li>bb 2.1
+                    <ul>
+                        <li>bb 2.1.1</li>
+                        <li>bb 2.1.2</li>
+                    </ul>
+                </li>
+                <li>bb 2.2</li>
+            </ul>
+        </li>
+        <li>bb 3</li>
+    </ul>
+</h3>
+
+<script src="../jquery-3.3.1.js"></script>
+<script type="text/javascript">
+</script>
+<script src="../jquery_exercises/filter_script.js" type="text/javascript"></script>
+
+
+</body>
+</html>
